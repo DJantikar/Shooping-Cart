@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-xs-8">
+        <hr>
+        <div class="row">
+            <div class="col-xs-6">            
+              Items({{items.length}})
+            </div>
+            <div class="col-xs-3">
+                <div class="col-xs-4">
+                </div>
+                <div class="col-xs-4" >
+                Qty
+                </div>
+                <div class="col-xs-2">
+                </div>
+            </div> 
+            <div class="col-xs-3">    
+               Price
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-xs-12">
+              <div 
+              class="row" 
+              *ngFor = "let item of items;let i=index"
+              style="margin-top:10px;margin-right :10px;" >
+                <div class="col-xs-6">            
+                    <div class="col-xs-8">
+                        {{item.name}}  
+                    </div>      
+                    <div class="col-xs-4">
+                        <button type="button" class="btn btn-default" (click)="onRemoveItem(i)">X</button>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="col-xs-4">
+                        <button type="button" class="btn btn-default" (click)="onDecrease(i)">-</button>
+                    </div>
+                    <div class="col-xs-4" style="text-align: center;" >
+                        {{item.qty}}
+                    </div>
+                    <div class="col-xs-2">
+                        <button type="button" class="btn btn-default" (click)="onIncrease(i)">+</button>
+                    </div>
+                </div>
+                
+                <div class="col-xs-3">    
+                    $ {{item.price}}     
+                </div>
+              </div>
+            </div>
+        </div>       
+    </div>
+    <div class="col-xs-4">
+      <div class="row">
+      </div>
+      <br><br><br><br>
+      <div class="row">
+          <app-total></app-total>
+      </div>      
+    </div>
+</div>
+<div class="row">
+    <div class="button btn btn-primary" (click)="onReload()">Reload</div>
+</div>
+
